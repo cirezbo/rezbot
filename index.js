@@ -29,7 +29,7 @@ fs.readdirSync(eventsPath).forEach(file => {
   const event = require(path.join(eventsPath, file));
   if (event.name && typeof event.execute === 'function') {
     client.on(event.name, (...args) => event.execute(...args));
-    console.log(`✅ Loaded event: ${event.name}`);
+    console.log(`Loaded event: ${event.name}`);
   }
 });
 
@@ -57,3 +57,4 @@ client.once('ready', () => {
 });
 
 client.login(process.env.DISCORD_CLIENT_TOKEN);
+
